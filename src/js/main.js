@@ -1,6 +1,9 @@
 window.onload = function () {
     $('#nav_b').on('click', function () {
-        $('#nav_c, #nav_b').toggleClass('tg');
+        $('#nav_c, #nav_b, nav, main').toggleClass('tg');
+    });
+    $('#nav_c').on('click', function () {
+        $('#nav_c, #nav_b, nav, main').toggleClass('tg');
     });
     var titles = {
         'title': "Cmess' Groovy Place",
