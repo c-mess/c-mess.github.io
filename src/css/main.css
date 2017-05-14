@@ -177,7 +177,7 @@ main {
   z-index: 1;
 }
 main #content {
-  min-height: 600px;
+  min-height: 95vh;
   overflow: hidden;
   font-weight: 300;
   background: #eee;
