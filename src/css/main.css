@@ -220,6 +220,7 @@ main h3 {
   width: 100%;
   padding: 10px 0;
   border-bottom: dotted 2px #aaa;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
 }
 main h1 {
   font-size: 40px;
@@ -232,6 +233,7 @@ main h3 {
 }
 main p {
   line-height: 1.3em;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
 }
 main footer {
   height: 30px;
