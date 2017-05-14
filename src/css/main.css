@@ -5,12 +5,20 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
 }
+a {
+  color: rgba(16, 170, 10, 0.8);
+  text-decoration: none;
+  transition: 0.3s;
+}
+a:hover {
+  color: #10d20a;
+}
 main::-webkit-scrollbar {
   width: 6px;
 }
 main::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: #10d20a;
+  border: 2px solid rgba(16, 170, 10, 0.8);
   border-radius: 4px;
   margin: 2px;
   box-shadow: 0 0 10px rgba(10, 10, 10, 0.3);
@@ -165,16 +173,89 @@ main {
   top: 0;
   height: 100vh;
   overflow-y: scroll;
+  overflow-x: hidden;
   z-index: 1;
 }
 main #content {
-  min-height: 1000px;
+  min-height: 600px;
   overflow: hidden;
   font-weight: 300;
   background: #eee;
   box-sizing: border-box;
-  padding: 50px 40px;
+  padding: 70px 40px;
   color: #444;
   width: 800px;
   margin: 80px auto;
+  position: relative;
+  box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(0, 0, 0, 0.5);
+}
+main #content *::selection {
+  background: #10d20a;
+  color: #fff;
+}
+main #content::before,
+main #content::after {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #777;
+  content: '';
+  display: block;
+  top: 40px;
+  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.5), 0 0 2px rgba(0, 0, 0, 0.5);
+}
+main #content::before {
+  left: 30%;
+}
+main #content::after {
+  right: 30%;
+}
+main h1,
+main h2,
+main h3 {
+  font-family: 'Lato';
+  font-weight: 300;
+  color: #333;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: dotted 2px #aaa;
+}
+main h1 {
+  font-size: 40px;
+}
+main h2 {
+  font-size: 37px;
+}
+main h3 {
+  font-size: 34px;
+}
+main p {
+  line-height: 1.3em;
+}
+main footer {
+  height: 30px;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+main footer div {
+  font-family: 'Lato';
+  font-weight: 400;
+  padding: 0 20px;
+  line-height: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  color: white;
+}
+main footer div:first-child {
+  float: left;
+}
+main footer div:last-child {
+  float: right;
+}
+main footer div:last-child a {
+  color: #10d20a;
+}
+main footer div:last-child a:hover {
+  color: #39f533;
 }

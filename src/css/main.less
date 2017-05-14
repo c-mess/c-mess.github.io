@@ -14,13 +14,22 @@ body {
     overflow-y: hidden;
 }
 
+a {
+    color: @button;
+    text-decoration: none;
+    transition: 0.3s;
+    &:hover {
+        color: @button_h;
+    }
+}
+
 main::-webkit-scrollbar {
     width: 6px;
 }
 
 main::-webkit-scrollbar-track {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.5);
+    background: @button_h;
+    border: 2px solid @button;
     border-radius: 4px;
     margin: 2px;
     box-shadow: 0 0 10px rgba(10,10,10,0.3);
@@ -180,16 +189,79 @@ main {
     top: 0;
     height: 100vh;
     overflow-y: scroll;
+    overflow-x: hidden;
     z-index: 1;
     #content {
-        min-height: 1000px;
+        min-height: 600px;
         overflow: hidden;
         font-weight: 300;
         background: #eee;
         box-sizing: border-box;
-        padding: 50px 40px;
+        padding: 70px 40px;
         color: #444;
         width: 800px;
         margin: 80px auto;
+        position: relative;
+        box-shadow: 5px 5px 12px @shadows, inset 0 0 2px @shadows;
+        & *::selection {
+            background: @button_h;
+            color: #fff;
+        }
+        &::before, &::after {
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #777;
+            content: '';
+            display: block;
+            top: 40px;
+            box-shadow: inset 4px 4px 10px @shadows, 0 0 2px @shadows;
+        }
+        &::before {
+            left: 30%;
+        }
+        &::after {
+            right: 30%;
+        }
+    }
+    h1, h2, h3 {
+        font-family: 'Lato';
+        font-weight: 300;
+        color: #333;
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: dotted 2px #aaa
+    }
+
+    h1 { font-size: 40px; }
+    h2 { font-size: 37px; }
+    h3 { font-size: 34px; }
+    p { line-height: 1.3em }
+    footer {
+        height: 30px;
+        width: 100vw;
+        background: @shadows;
+        box-shadow: 0 0 10px @shadows;
+        div {
+            font-family: 'Lato';
+            font-weight: 400;
+            padding: 0 20px;
+            line-height: 30px;
+            text-shadow: 1px 1px 2px @shadows;
+            color: white;
+            &:first-child {
+                float: left;
+            }
+            &:last-child {
+                float: right;
+                a {
+                    color: @button_h;
+                    &:hover {
+                        color: lighten(@button_h, 15%);
+                    }
+                }
+            }
+        }
     }
 }
