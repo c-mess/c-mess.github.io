@@ -1,0 +1,195 @@
+// General color values
+
+@shadows: rgba(0,0,0,0.5);
+@button: rgba(16,170,10,0.8);
+@button_h: rgba(16,210,10,1);
+
+// Misc rules
+
+body {
+    font-family: 'Roboto';
+    margin: 0;
+    background: #777;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+main::-webkit-scrollbar {
+    width: 6px;
+}
+
+main::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 4px;
+    margin: 2px;
+    box-shadow: 0 0 10px rgba(10,10,10,0.3);
+    padding: 1px;
+}
+
+main::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.9);
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+// Menu keyframes
+
+@keyframes mbt {
+    0% {
+        border-left: 15px solid @button_h;
+        border-top: 25px solid transparent;
+        border-bottom: 25px solid transparent;
+        border-right: 0px solid transparent;
+    }
+    40% {
+        border-left: 0px solid @button_h;
+        border-top: 25px solid transparent;
+        border-bottom: 25px solid transparent;
+        border-right: 0px solid transparent;
+    }
+    60% {
+        border-left: 0px solid transparent;
+        border-top: 25px solid @button_h;
+        border-bottom: 25px solid @button_h;
+        border-right: 0px solid transparent;
+    }
+    100% {
+        border-left: 0px solid transparent;
+        border-top: 25px solid @button_h;
+        border-bottom: 25px solid @button_h;
+        border-right: 15px solid transparent;
+    }
+}
+
+// Menu btn styles
+
+nav {
+    color: #fff;
+    background: rgba(255,255,255,0.9);
+    height: 50px;
+    box-shadow: 0 0 9px @shadows, inset 0 -5px 10px rgba(0,0,0,0.1), inset 0 5px 10px rgba(255,255,255,0.2);
+    overflow: hidden;
+    display: block;
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+
+#nav_b {
+    background: transparent;
+    height: 50px;
+    width: 58px;
+    transition: 0.3s ease-in-out;
+    transition-delay: 0.2s;
+    background: @button;
+    div {
+        font-family: 'Lato';
+        font-size: 40px;
+        font-weight: 300;
+        float: right;
+        margin-top: -100px;
+        margin-right: 20px;
+        pointer-events: none;
+        transition: 0.2s;
+    }
+    &:hover, &.tg {
+        background: @button_h;
+        width: 150px;
+        transition-delay: 0.2s;
+        &::before {
+            border-left: solid 15px @button_h;
+            margin-left: 150px;
+            transition-delay: 0.2s;
+        }
+        div {
+            margin-top: -47px;
+            transition-delay: 0.4s;
+        }
+        span {
+            margin-top: -90px;
+        }
+        span, span::before, span::after {
+            transition-delay: 0s;
+        }
+    }
+    &.tg::before {
+            border-left: 0px solid transparent;
+            border-top: 25px solid @button_h;
+            border-bottom: 25px solid @button_h;
+            border-right: 15px solid transparent;
+            animation: mbt 0.4s forwards;
+            transition: 0.4s;
+    }
+    &::before {
+        transition: 0.3s ease-in-out;
+        width: 0;
+        height: 0;
+        margin-left: 58px;
+        border-left: solid 15px @button;
+        border-bottom: solid 25px transparent;
+        border-top: solid 25px transparent;
+        content: '';
+        display: block;
+        transition-delay: 0.2s;
+    }
+    span {
+        height: 0px;
+        opacity: 0.9;
+        width: 36px;
+        border: solid 2px #fff;
+        border-radius: 2px;
+        display: block;
+        box-sizing: border-box;
+        margin-top: -27px;
+        font-size: 0;
+        margin-left: 9px;
+        transition: 0.4s;
+        transition-delay: 0.4s;
+        &::before, &::after {
+            content: '';
+            transition: 0.2s;
+            margin-top: 10px;
+            margin-left: -2px;
+            height: 0px;
+            width: 37px;
+            border: solid 2px #fff;
+            border-radius: 2px;
+            display: block;
+            box-sizing: border-box;
+        }
+        &::after {
+            margin-top: -28px;
+        }
+    }
+}
+
+// Content keyframes
+
+
+
+// Content styles
+
+main {
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    overflow-y: scroll;
+    z-index: 1;
+    #content {
+        min-height: 1000px;
+        overflow: hidden;
+        font-weight: 300;
+        background: #eee;
+        box-sizing: border-box;
+        padding: 50px 40px;
+        color: #444;
+        width: 800px;
+        margin: 80px auto;
+    }
+}
